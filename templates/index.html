@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Book Idea Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='design.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="wrapper">
+        <h1>AI-Powered Book Idea Generator</h1>
+        <div class="circle">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+        <div class="container">
+        
+        <form action="/generate" method="POST">
+            <label for="genre">Enter the genre of your book:</label>
+            <input type="text" id="genre" name="genre" placeholder="e.g., Fantasy, Mystery, Romance, Science Fiction" required><br>
+            <label for="topic">Enter the topic of the book:</label>
+            <input type="text" id="topic" name="topic" required><br><br>
+            <button type="submit">Generate Book Idea</button>
+        </form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if book_idea %}
+            <div class="result">
+                <h3>Generated Book Idea</h3>
+                <strong>Genre:</strong> {{ genre }}<br>
+                <strong>Topic:</strong> {{ topic }}<br><br>
+                <strong>Book Idea:</strong><br>
+                <h2><pre>{{ book_idea }}</pre></h2>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+    
