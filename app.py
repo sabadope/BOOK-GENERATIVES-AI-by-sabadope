@@ -14,7 +14,7 @@ def initialize_model(api_key):
             "top_k": 40,
             "max_output_tokens": 8192,
         }
-        return genai.GenerativeModel(model_name="gemini-1.5-flash", generation_config=generation_config)
+        return genai.GenerativeModel(model_name="gemini-2.0-flash", generation_config=generation_config)
     except Exception as e:
         print(f"Error initializing the model: {e}")
         return None
